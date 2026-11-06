@@ -1,12 +1,162 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "tailwindcss";
 
-@theme{
-    --font-volkhov:"Volkhov", serif;
+@theme {
+  --font-volkhov: "Volkhov", serif;
+  --font-poppins: "Poppins", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* ============================================================
+   CUSTOM CSS — Tailwind ke baad apply hoga
+   ============================================================ */
 
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+.font-poppins {
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
 
+/* ---------- Navbar links ---------- */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  transition: color 0.25s ease;
+}
+.nav-link:hover {
+  color: #f97316;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: #f97316;
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
 
+/* ---------- Footer links ---------- */
+.footer-link {
+  position: relative;
+  transition:
+    color 0.25s ease,
+    padding-left 0.25s ease;
+}
+.footer-link:hover {
+  color: #f97316;
+  padding-left: 6px;
+}
 
+/* ---------- Keyframes ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-10px, 10px) rotate(1.5deg);
+  }
+}
+@keyframes pingSlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%,
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* ---------- Animation utilities ---------- */
+.animate-fade-up {
+  animation: fadeUp 0.7s ease-out both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.9s ease-out both;
+}
+.animate-float {
+  animation: floatY 6s ease-in-out infinite;
+}
+.animate-drift {
+  animation: drift 14s ease-in-out infinite;
+}
+.animate-ping-slow {
+  animation: pingSlow 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Testimonial image (single, static) ---------- */
+.testimonial-img {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-float,
+  .animate-drift,
+  .animate-ping-slow {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
