@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="output.css" />
   </head>
 
-  <body class="font-poppins text-gray-700 antialiased">
+  <body class="font-poppins text-gray-700 antialiased overflow-x-hidden">
     <!-- Hero background blob -->
     <svg
       class="absolute top-0 right-0 -z-10 animate-drift"
@@ -29,10 +29,12 @@
     </svg>
 
     <!-- ================= NAVBAR ================= -->
+
     <nav
       id="navbar"
-      class="sticky top-0 z-50 flex items-center justify-between px-6 lg:px-20 py-4 bg-white/80 backdrop-blur-md transition-shadow duration-300"
+      class="sticky top-0 z-50 flex w-full items-center justify-between px-6 lg:px-20 py-4 bg-transparent backdrop-blur-none shadow-none transition-all duration-300"
     >
+      <!-- Logo -->
       <a href="#" class="cursor-pointer group" aria-label="Jadoo home">
         <img
           src="./Assets/Logo.png"
@@ -41,69 +43,76 @@
         />
       </a>
 
-      <!-- Hamburger -->
-      <input type="checkbox" id="menu-toggle" class="peer hidden" />
-      <label
-        for="menu-toggle"
-        class="cursor-pointer lg:hidden block relative z-50"
-        aria-label="Toggle menu"
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="menu-button"
+        type="button"
+        class="flex lg:hidden relative z-[60] h-11 w-11 shrink-0 flex-col items-center justify-center gap-[6px] rounded-lg transition-colors duration-300 hover:bg-orange-50"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="nav-menu"
       >
-        <div class="space-y-1.5">
-          <span
-            class="block w-6 h-0.5 bg-gray-700 transition-transform duration-300 peer-checked:translate-y-2 peer-checked:rotate-45"
-          ></span>
-          <span
-            class="block w-6 h-0.5 bg-gray-700 transition-opacity duration-300 peer-checked:opacity-0"
-          ></span>
-          <span
-            class="block w-6 h-0.5 bg-gray-700 transition-transform duration-300 peer-checked:-translate-y-2 peer-checked:-rotate-45"
-          ></span>
-        </div>
-      </label>
+        <span
+          id="menu-line-1"
+          class="block h-[2px] w-6 rounded-full bg-[#181E4B] transition-all duration-300"
+        ></span>
 
-      <!-- Menu -->
+        <span
+          id="menu-line-2"
+          class="block h-[2px] w-6 rounded-full bg-[#181E4B] transition-all duration-300"
+        ></span>
+
+        <span
+          id="menu-line-3"
+          class="block h-[2px] w-6 rounded-full bg-[#181E4B] transition-all duration-300"
+        ></span>
+      </button>
+
+      <!-- Navigation Menu -->
       <ul
-        class="peer-checked:flex hidden absolute top-full left-0 bg-white shadow-md flex-col gap-4 p-6 w-full lg:w-auto lg:bg-transparent lg:shadow-none lg:static lg:flex lg:flex-row lg:items-center lg:gap-10 z-40"
+        id="nav-menu"
+        class="hidden absolute top-full left-0 z-[55] w-full flex-col gap-5 bg-white px-6 py-7 shadow-xl lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-10 lg:bg-transparent lg:p-0 lg:shadow-none"
       >
-        <li><a href="#" class="nav-link">Destinations</a></li>
-        <li><a href="#" class="nav-link">Hotels</a></li>
-        <li><a href="#" class="nav-link">Flights</a></li>
-        <li><a href="#" class="nav-link">Bookings</a></li>
-        <li><a href="#" class="nav-link">Login</a></li>
+        <li><a href="#" class="nav-link block">Destinations</a></li>
+        <li><a href="#" class="nav-link block">Hotels</a></li>
+        <li><a href="#" class="nav-link block">Flights</a></li>
+        <li><a href="#" class="nav-link block">Bookings</a></li>
+        <li><a href="#" class="nav-link block">Login</a></li>
+
         <li>
           <a
             href="#"
-            class="inline-block border-2 border-gray-400 rounded-[5px] py-2 px-4 text-[16px] transition-all duration-300 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
+            class="inline-block rounded-[5px] border-2 border-gray-400 px-4 py-2 text-[16px] transition-all duration-300 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
           >
             Sign up
           </a>
         </li>
+
         <li class="relative group">
           <button
-            class="flex items-center gap-1 mt-0.5 nav-link cursor-pointer"
+            type="button"
+            class="flex items-center gap-2 nav-link cursor-pointer"
             aria-haspopup="true"
           >
             En
-            <span
+            <svg
+              width="9"
+              height="6"
+              viewBox="0 0 9 6"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               class="transition-transform duration-300 group-hover:rotate-180"
             >
-              <svg
-                width="9"
-                height="6"
-                viewBox="0 0 9 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.336426 1.20398L4.39717 5.26473L8.45792 1.20398"
-                  stroke="currentColor"
-                  stroke-width="0.902388"
-                />
-              </svg>
-            </span>
+              <path
+                d="M0.336426 1.20398L4.39717 5.26473L8.45792 1.20398"
+                stroke="currentColor"
+                stroke-width="0.902388"
+              />
+            </svg>
           </button>
+
           <ul
-            class="absolute right-0 top-full mt-2 hidden group-hover:block bg-white shadow-lg rounded-md py-1 min-w-[90px] text-sm"
+            class="absolute left-0 top-full z-50 mt-2 hidden min-w-[90px] rounded-md bg-white py-1 text-sm shadow-lg group-hover:block group-focus-within:block"
           >
             <li>
               <a href="#" class="block px-4 py-2 hover:bg-orange-50">En</a>
@@ -118,6 +127,12 @@
         </li>
       </ul>
     </nav>
+
+    <!-- Mobile Overlay -->
+    <div
+      id="menu-overlay"
+      class="fixed inset-0 z-30 hidden bg-black/30 backdrop-blur-sm lg:hidden"
+    ></div>
 
     <!-- ================= HERO ================= -->
     <section class="px-6 lg:px-10">
@@ -491,7 +506,7 @@
             What People Say About Us.
           </h2>
 
-          <!-- Dots: purely visual (image change nahi hoti) -->
+          <!-- Dots: purely visual (the image does not change) -->
           <div class="flex gap-3 mt-4 md:mt-16" id="testimonial-dots">
             <button
               class="dot w-8 h-3 rounded-full bg-orange-500 transition-all duration-300 cursor-pointer"
@@ -618,6 +633,7 @@
                 id="email-input"
                 type="email"
                 placeholder="Your Email"
+                aria-label="Email address"
                 required
                 class="flex-1 outline-none text-gray-700 bg-transparent placeholder-gray-500"
               />
@@ -730,11 +746,108 @@
 
     <!-- ================= SCRIPTS ================= -->
     <script>
-      // Sticky navbar shadow
       const navbar = document.getElementById("navbar");
-      window.addEventListener("scroll", () => {
-        navbar.classList.toggle("shadow-md", window.scrollY > 10);
+
+      const menuButton = document.getElementById("menu-button");
+      const menu = document.getElementById("nav-menu");
+      const overlay = document.getElementById("menu-overlay");
+
+      const line1 = document.getElementById("menu-line-1");
+      const line2 = document.getElementById("menu-line-2");
+      const line3 = document.getElementById("menu-line-3");
+
+      let menuOpen = false;
+
+      // Navbar background on scroll
+      function updateNavbar() {
+        const isScrolled = window.scrollY > 10;
+
+        navbar.classList.toggle("bg-transparent", !isScrolled && !menuOpen);
+        navbar.classList.toggle("bg-white/75", isScrolled && !menuOpen);
+        navbar.classList.toggle("bg-white/95", menuOpen);
+
+        navbar.classList.toggle("backdrop-blur-none", !isScrolled && !menuOpen);
+        navbar.classList.toggle("backdrop-blur-xl", isScrolled || menuOpen);
+
+        navbar.classList.toggle("shadow-none", !isScrolled && !menuOpen);
+        navbar.classList.toggle("shadow-md", isScrolled || menuOpen);
+      }
+
+      // Open mobile menu
+      function openMenu() {
+        menuOpen = true;
+
+        menu.classList.remove("hidden");
+        menu.classList.add("flex");
+
+        overlay.classList.remove("hidden");
+
+        document.body.classList.add("overflow-hidden");
+
+        // Three lines to X
+        line1.classList.add("translate-y-[8px]", "rotate-45");
+        line2.classList.add("opacity-0", "scale-0");
+        line3.classList.add("-translate-y-[8px]", "-rotate-45");
+
+        menuButton.setAttribute("aria-expanded", "true");
+        menuButton.setAttribute("aria-label", "Close navigation menu");
+
+        updateNavbar();
+      }
+
+      // Close mobile menu
+      function closeMenu() {
+        menuOpen = false;
+
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+
+        overlay.classList.add("hidden");
+
+        document.body.classList.remove("overflow-hidden");
+
+        // X to three lines
+        line1.classList.remove("translate-y-[8px]", "rotate-45");
+        line2.classList.remove("opacity-0", "scale-0");
+        line3.classList.remove("-translate-y-[8px]", "-rotate-45");
+
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+
+        updateNavbar();
+      }
+
+      // Hamburger toggle
+      menuButton.addEventListener("click", () => {
+        menuOpen ? closeMenu() : openMenu();
       });
+
+      // Close on overlay click
+      overlay.addEventListener("click", closeMenu);
+
+      // Close on navigation link click
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      // Close with Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && menuOpen) {
+          closeMenu();
+        }
+      });
+
+      // Close menu when switching to desktop
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1024 && menuOpen) {
+          closeMenu();
+        }
+      });
+
+      // Update navbar on scroll
+      window.addEventListener("scroll", updateNavbar);
+
+      updateNavbar();
 
       // Scroll reveal
       const revealEls = document.querySelectorAll(".reveal");
@@ -751,7 +864,7 @@
       );
       revealEls.forEach((el) => revealObserver.observe(el));
 
-      // Testimonial dots — visual only, image static rahegi (no blank space)
+      // Testimonial dots — visual only, the image stays static (no blank space)
       const dots = document.querySelectorAll(".dot");
       dots.forEach((dot) => {
         dot.addEventListener("click", () => {
