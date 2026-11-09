@@ -4,10 +4,10 @@ A fully responsive travel agency landing page, built from the **Jadoo** Figma Co
 
 🔗 **Live demo:** [awesomised.github.io/travel-landing-page](https://awesomised.github.io/travel-landing-page/)
 
-![Desktop preview](./screenshots/desktop.png)
+![Desktop preview](./screenshots/Desktop.png)
 
 <p>
-  <img src="./screenshots/mobile.png" alt="Mobile preview" width="260" />
+  <img src="./screenshots/Mobile.png" alt="Mobile preview" width="260" />
 </p>
 
 ## Features
