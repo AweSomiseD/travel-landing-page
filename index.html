@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="output.css" />
   </head>
 
-  <body class="font-poppins text-gray-700 antialiased overflow-x-hidden">
+  <body class="font-poppins text-gray-700 antialiased">
     <!-- Hero background blob -->
     <svg
       class="absolute top-0 right-0 -z-10 animate-drift"
@@ -131,7 +131,7 @@
     <!-- Mobile Overlay -->
     <div
       id="menu-overlay"
-      class="fixed inset-0 z-30 hidden bg-black/30 backdrop-blur-sm lg:hidden"
+      class="fixed inset-0 z-40 hidden bg-black/30 backdrop-blur-sm lg:hidden"
     ></div>
 
     <!-- ================= HERO ================= -->
@@ -782,7 +782,8 @@
 
         overlay.classList.remove("hidden");
 
-        document.body.classList.add("overflow-hidden");
+        // Lock page scroll (on <html>, so the sticky navbar keeps working)
+        document.documentElement.classList.add("overflow-hidden");
 
         // Three lines to X
         line1.classList.add("translate-y-[8px]", "rotate-45");
@@ -804,7 +805,7 @@
 
         overlay.classList.add("hidden");
 
-        document.body.classList.remove("overflow-hidden");
+        document.documentElement.classList.remove("overflow-hidden");
 
         // X to three lines
         line1.classList.remove("translate-y-[8px]", "rotate-45");
